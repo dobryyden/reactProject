@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/tasks")
 public class TaskController {
 
-    private TaskService taskService;
+    private final TaskService taskService;
 
     public TaskController(TaskService taskService) {
         this.taskService = taskService;
