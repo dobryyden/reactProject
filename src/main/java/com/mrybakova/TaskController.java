@@ -1,5 +1,6 @@
 package com.mrybakova;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -24,13 +25,14 @@ public class TaskController {
         return taskService.findAll();
     }
 
-    @GetMapping("/task")
-    public Mono<Task> getTaskById(@RequestBody Long id) {
+    @GetMapping("/task/{id}")
+    public Mono<Task> getTaskById(@PathVariable Long id) {
         return taskService.findById(id);
     }
 
-    @DeleteMapping("/delete")
-    public Mono<Void> deleteTaskById(@RequestBody Long id) {
+    @DeleteMapping("/delete/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Mono<Void> deleteTaskById(@PathVariable Long id) {
         return taskService.deleteById(id);
     }
 }
