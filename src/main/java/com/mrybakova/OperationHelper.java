@@ -9,6 +9,6 @@ public class OperationHelper {
         UUID uuid = UUID.randomUUID();
         Date date = new Date();
         Timestamp timestamp = new Timestamp(date.getTime());
-        return uuid.toString() + " " + timestamp + " " + methodType;
+        return uuid + " " + timestamp + " " + methodType;
     }
 }
